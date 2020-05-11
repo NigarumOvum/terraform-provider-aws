@@ -5,6 +5,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/hashicorp/terraform-plugin-sdk/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 )
 
@@ -14,6 +15,7 @@ var sweeperAwsClients map[string]interface{}
 
 func TestMain(m *testing.M) {
 	sweeperAwsClients = make(map[string]interface{})
+	acctest.UseBinaryDriver("aws", Provider)
 	resource.TestMain(m)
 }
 
